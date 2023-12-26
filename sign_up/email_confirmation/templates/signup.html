@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+</head>
+<style>
+    input[type=text], select {
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 5px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    }
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+
+<body>
+    <div style="background-color: lightblue; margin:auto; text-align:center; color:blue">
+        <b><h1>Register Below</h1></b>
+    </div>
+
+    <div style="padding-left:675px">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <table>
+                {{ form }}
+            </table>
+            <input type="submit" value="Submit" style="margin-left:55px">
+                {% if messages %}
+                    <div class="alert">
+                        <span>
+                            <ul class="messages">
+                                {% for m in messages %}
+                                <li {% if m.tags %} class="{{ m.tags }}"{% endif %}>{{ m }}</li>
+                                {% endfor %}
+                            </ul>
+                        </span>
+                    </div>
+                {% endif %}
+        </form>
+        <form action="http://127.0.0.1:8000/">
+            <input type="submit" value="Back to Login" style="margin-left:55px">
+        </form>
+
+    </div>
+
+</body>
+</html>
